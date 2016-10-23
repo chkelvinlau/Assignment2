@@ -42,7 +42,7 @@
             height:15px;
         }
         
-        .img {
+        #img {
             position:relative;
             top:15px;
             left:10px;
@@ -51,22 +51,22 @@
             height:auto;
         }
         
-        .h3 {
+        #h3 {
             position:relative;
             top:5%;
             left:5%;
             font-size:200%;
         }
         
-        .divtext {
+        #divtext {
             position:relative;
             top:15%;
             left:5%;
         }
         
-        .box {
+        #box {
             position:relative;
-            top:75px;
+            top:15px;
             left:20%;
             width:750px;
             height:150px;
@@ -97,9 +97,11 @@
         }
     </style>
     
-    <body>
+    <body style="background-color:lightblue;">
     <div id="Name">
-        <center>Cheuk Hin (Kelvin) Lau</center></div>
+        <center>Cheuk Hin (Kelvin) Lau</center>
+    </div>
+    <div><center><h3>Assignment 2</h3></center></div>
     <div id="TopLeft1">
         <button id="AddButton">Add</button>
     </div>
@@ -111,30 +113,39 @@
     <div id="TopRight">
         <button id="ClearButton">Clear</button>
     </div>
+    <div id="InputInfo"></div>
     <div id="Created"><center><h2>Created Items</h2></center></div>
     <div id="Cleared"><center><h2>Cleared Items</h2></center></div>
     <script>
         var AddBut = document.getElementById("AddButton");
         var ClearBut = document.getElementById("ClearButton");
+        
         var CreateMsg = document.getElementById("Created");
         var ClearMsg = document.getElementById("Cleared");
         
+        var InputContainer = document.getElementById("InputInfo");
+        
         AddBut.onclick = function(){
             var newObj = document.createElement("div");
-            document.body.appendChild(newObj);
-            newObj.className = "box";
+            newObj.id = "box";
+            
             var newImg = document.createElement("img");
             newImg.src = img_input.value;
-            newImg.className = "img";
+            newImg.id = "img";
             newObj.appendChild(newImg);
+            
             var newH3 = document.createElement("div");
             newH3.innerHTML = h3_input.value;
-            newH3.className = "h3";
+            newH3.id = "h3";
             newObj.appendChild(newH3);
+            
             var newDivText = document.createElement("div");
             newDivText.innerHTML = div_input.value;
             newDivText.className = "divtext";
             newObj.appendChild(newDivText);
+            
+            InputContainer.appendChild(newObj);
+            
             CreateMsg.style.bottom = "5px";
             ClearMsg.style.bottom = "-100px";
         }
@@ -142,6 +153,7 @@
         ClearBut.onclick = function(){
             ClearMsg.style.bottom = "5px";
             CreateMsg.style.bottom = "-100px";
+            InputContainer.innerHTML = "";
         }
     </script>    
     </body>
