@@ -53,15 +53,15 @@
         
         #h3 {
             position:relative;
-            top:5%;
-            left:5%;
             font-size:200%;
+            text-align:center;
+            top:10%;
         }
         
         #divtext {
             position:relative;
-            top:15%;
-            left:5%;
+            text-align:center;
+            top:20%;
         }
         
         #box {
@@ -73,7 +73,7 @@
             background-color:#FFAA26;
             margin-bottom:2px;
             border-radius: 5px;
-			border: 1px solid rgb(0, 0, 0);
+			border:1px solid rgb(0, 0, 0);
         }
         
         #Created {
@@ -83,7 +83,7 @@
             bottom:-100px;
             left:0.5%;
             background-color:dodgerblue;
-            transition: bottom 0.5s;
+            transition:bottom 0.5s;
         }
         
         #Cleared {
@@ -93,7 +93,7 @@
             bottom:-100px;
             right:0.5%;
             background-color:limegreen;
-            transition: bottom 0.5s;
+            transition:bottom 0.5s;
         }
     </style>
     
@@ -109,13 +109,13 @@
         <p><input type="text" placeholder="Enter header text here" id="h3_input" class="mytext" /></p>
         <p><input type="text" placeholder="Enter image link here" id="img_input" class="mytext" /></p>
         <p><input type="text" placeholder="Enter message text here" id="div_input" class="mytext" /></p>
-     </div>
+    </div>
     <div id="TopRight">
         <button id="ClearButton">Clear</button>
     </div>
     <div id="InputInfo"></div>
-    <div id="Created"><center><h2>Created Items</h2></center></div>
-    <div id="Cleared"><center><h2>Cleared Items</h2></center></div>
+    <div id="Created"><center><h2>Created Item</h2></center></div>
+    <div id="Cleared"><center><h2>Cleared Item(s)</h2></center></div>
     <script>
         var AddBut = document.getElementById("AddButton");
         var ClearBut = document.getElementById("ClearButton");
@@ -141,7 +141,7 @@
             
             var newDivText = document.createElement("div");
             newDivText.innerHTML = div_input.value;
-            newDivText.className = "divtext";
+            newDivText.id = "divtext";
             newObj.appendChild(newDivText);
             
             InputContainer.appendChild(newObj);
